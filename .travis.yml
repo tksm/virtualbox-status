@@ -1,0 +1,11 @@
+osx_image: xcode7.2
+before_deploy:
+- xcodebuild clean build
+- cd build/Release && zip -r VirtualBoxStatus-$TRAVIS_TAG.zip VirtualBoxStatus.app
+deploy:
+  provider: releases
+  api_key:
+    secure: uP3ifRg9mXAE8XXv5QyHk1YDsqWDix3XD9LG3e2W7+AsjzVwB3wbG9ubw4guLQAFiPSBNKG04SulItvjXxr2W8vYzXYO61PUFOlwrcEEV0YYSa8kUCg3vktFxY2dQkamd7Zpr3NXEdKYIQMW3C2af1/uNNyqId9D5KTtnA0S/L4zu+D2ZqbWB/QthbsuKe/qH5OrT8UJ+y8lrW5EzBqnHfeW5kx+gQHQwbSANTfdQ5jWfolqHyMeRu82ni/NNtvoTRQE+PeDQAL4qB/98ARGUAFCMe0ZuJrcInXFqZ+gjqNaPzo1LR28htjLsnCYZRS3KrVfTfd4t+5t2lkcQWGCI9QmzhUTYSHBXS4F+TmrcslLONMvafGCR5cX1u1Mygrzi7kObVwpf8quffM0hvg6D8rIL3QpPgskfbkMwVPQifXmkAcmBEEaAJ0wWnKM/syWTcYi6rNcxSlTxKcpUmaNaZsug2wXk2eZPD8AHcV9GEY+jiclDpQ/Ho8s3qaksHifOdg3bTxahovlA/GvJfx25oT0kAqAuKzs2/scgNmZIwx488EaATtctD371TqhqxsN1MUje9973vgOueX/yUkSZofj+7VhMx3/+qamA9ECQJHVZzegK3x9Hmt7cBNxG3VoLnzri4KyTuAlQPlpoavZO5ugETb/XGXMSYi1OXkOYAw=
+  file: VirtualBoxStatus-$TRAVIS_TAG.zip
+  on:
+    repo: tksm/virtualbox-status
