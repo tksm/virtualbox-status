@@ -10,3 +10,4 @@ deploy:
   file: VirtualBoxStatus-$TRAVIS_TAG.zip
   on:
     repo: tksm/virtualbox-status
+    tags: true
